@@ -1,0 +1,45 @@
+#nolint:valid-pipeline-git-checkout-tag
+package:
+  name: iptables-wrapper
+  version: 2
+  epoch: 0
+  description: Wrapper scripts for using iptables in containers
+  copyright:
+    - license: Apache-2.0
+  dependencies:
+    runtime:
+      - xtables
+
+environment:
+  contents:
+    packages:
+      - busybox
+      - ca-certificates-bundle
+      - iptables
+
+pipeline:
+  - uses: git-checkout
+    with:
+      repository: https://github.com/kubernetes-sigs/iptables-wrappers
+      branch: master
+      expected-commit: f6ef44b2c449cca8f005b32dea9a4b497202dbef
+
+  - uses: go/build
+    with:
+      packages: .
+      prefix: /
+      install-dir: sbin
+      output: iptables-wrapper
+
+  - runs: |
+      for binary in iptables iptables-restore iptables-save ip6tables ip6tables-restore ip6tables-save
+      do
+        ln -sf /sbin/iptables-wrapper ${{targets.contextdir}}/sbin/$binary
+      done
+
+update:
+  enabled: true
+  github:
+    identifier: kubernetes-sigs/iptables-wrappers
+    use-tag: true
+    strip-prefix: v
