@@ -58,6 +58,11 @@ subpackages:
             gi-docgen --version
             gi-docgen --help
 
+  - name: py3-gi-docgen-doc
+    description: py3-gi-docgen docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   release-monitor:
