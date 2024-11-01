@@ -38,6 +38,12 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: libtelnet-doc
+    description: libtelnet docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   github:

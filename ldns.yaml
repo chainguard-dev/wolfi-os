@@ -63,6 +63,11 @@ subpackages:
             drill version
             drill help
 
+  - name: ldns-doc
+    description: ldns docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   ignore-regex-patterns:

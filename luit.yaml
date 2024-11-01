@@ -44,6 +44,11 @@ subpackages:
         - luit
     description: luit dev
 
+  - name: luit-doc
+    description: luit docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   release-monitor:

@@ -53,6 +53,11 @@ subpackages:
       pipeline:
         - uses: test/pkgconf
 
+  - name: liblogging-doc
+    description: liblogging docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   github:

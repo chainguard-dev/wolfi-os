@@ -35,6 +35,13 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: make-doc
+    description: make docs
+    pipeline:
+      - uses: split/manpages
+      - uses: split/infodir
+
 update:
   enabled: true
   manual: true # be careful upgrading Make as it is a core package

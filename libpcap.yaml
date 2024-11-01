@@ -63,6 +63,11 @@ subpackages:
             pcap-config --help
         - uses: test/pkgconf
 
+  - name: libpcap-doc
+    description: libpcap docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   github:

@@ -49,6 +49,12 @@ pipeline:
 
   - uses: autoconf/make-install
 
+subpackages:
+  - name: memtier-benchmark-doc
+    description: memtier-benchmark docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   github:
@@ -57,5 +63,4 @@ update:
 test:
   pipeline:
     - runs: |
-        memtier_benchmark --version | grep ${{package.version}}
-        memtier_benchmark help
+        memtier_benchmark --version

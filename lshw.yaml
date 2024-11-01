@@ -28,6 +28,12 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: lshw-doc
+    description: lshw docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   release-monitor:

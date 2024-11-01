@@ -157,6 +157,11 @@ subpackages:
             nl-tctree-list --version
             nl-tctree-list --help
 
+  - name: libnl3-doc
+    description: libnl3 docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   version-transform:

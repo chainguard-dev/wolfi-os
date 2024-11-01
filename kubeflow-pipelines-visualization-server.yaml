@@ -55,6 +55,12 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: kubeflow-pipelines-visualization-server-doc
+    description: kubeflow-pipelines-visualization-server docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   ignore-regex-patterns:

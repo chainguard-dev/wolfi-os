@@ -32,6 +32,13 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: m4-doc
+    description: m4 docs
+    pipeline:
+      - uses: split/manpages
+      - uses: split/infodir
+
 update:
   enabled: true
   release-monitor:

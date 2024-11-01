@@ -55,6 +55,11 @@ subpackages:
       - uses: split/dev
     description: libxkbcommon dev
 
+  - name: libxkbcommon-doc
+    description: libxkbcommon docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   release-monitor:

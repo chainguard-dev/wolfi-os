@@ -65,6 +65,12 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: lighttpd-doc
+    description: lighttpd docs
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   release-monitor:
