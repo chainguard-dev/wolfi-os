@@ -15,6 +15,14 @@ package:
   dependencies:
     runtime:
       - openssl-provider-legacy
+      # Melange will automatically add a dependency on 'so:libcrypto.so.3' and 'so:libssl.so.3' via SCA
+      # However, this dependency is unversioned so it will be satisfied by an older version of either library
+      # The OpenSSL CLI expects this be at least the same <major>.<minor>.<patch> version or the CLI will crash
+      # Example: '/usr/lib/libcrypto.so.3: version `OPENSSL_3.4.0' not found (required by openssl)'
+      # To avoid this, we explicitly require the versions of libcrypto3 and libssl3 to be at least the CLI version
+      # A long-term fix is being tracked via: https://github.com/chainguard-dev/melange/issues/1621
+      - libcrypto3>=${{package.version}}
+      - libssl3>=${{package.version}}
 
 environment:
   contents:
