@@ -12,6 +12,16 @@ package:
     provides:
       - rust=${{package.full-version}}
 
+vars:
+  py-version: 3.13
+  openssl-version: 1.1.1w
+  libssh2-version: 1.11.0
+  sysroot: /home/build/sysroot
+  PKG_CONFIG_LIBDIR: "/home/build/sysroot/lib/pkgconfig:/home/build/sysroot/share/pkgconfig:/usr/lib/pkgconfig"
+  CFLAGS: "$CFLAGS -I/home/build/sysroot/include"
+  CPPFLAGS: "$CPPFLAGS -I/home/build/sysroot/include"
+  CXXFLAGS: "$CXXFLAGS -I/home/build/sysroot/include"
+
 environment:
   contents:
     packages:
@@ -30,7 +40,7 @@ environment:
       - openssl-dev
       - patch
       - perl
-      - python-${{vars.py-version}}-base
+      - python-${{vars.py-version}}
       - rust~1.68
       - wasi-libc
       - xz-dev
@@ -69,7 +79,7 @@ pipeline:
         --enable-option-checking \
         --enable-locked-deps \
         --enable-vendor \
-        --python="python${{vars.py-version}}" \
+        --python="python3" \
         --set="rust.codegen-units=1" \
         --set="rust.codegen-units-std=1" \
         --set="rust.parallel-compiler=false" \
@@ -99,7 +109,7 @@ pipeline:
 
       export OPENSSL_NO_VENDOR=1
       export RUST_BACKTRACE=1
-      DESTDIR=${{targets.destdir}} python${{vars.py-version}} ./x.py install --jobs $(nproc)
+      DESTDIR=${{targets.destdir}} python3 ./x.py install --jobs $(nproc)
 
   - uses: strip
 
@@ -123,15 +133,6 @@ pipeline:
       cd ${{targets.destdir}}
       ln -srft usr/lib usr/lib/rustlib/${{build.arch}}-unknown-linux-gnu/lib/*.so
 
-vars:
-  openssl-version: 1.1.1w
-  libssh2-version: 1.11.0
-  sysroot: /home/build/sysroot
-  PKG_CONFIG_LIBDIR: "/home/build/sysroot/lib/pkgconfig:/home/build/sysroot/share/pkgconfig:/usr/lib/pkgconfig"
-  CFLAGS: "$CFLAGS -I/home/build/sysroot/include"
-  CPPFLAGS: "$CPPFLAGS -I/home/build/sysroot/include"
-  CXXFLAGS: "$CXXFLAGS -I/home/build/sysroot/include"
-  py-version: 3.13
 
 update:
   enabled: false
