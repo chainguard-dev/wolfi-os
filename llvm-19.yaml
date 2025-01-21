@@ -475,9 +475,9 @@ subpackages:
     dependencies:
       provides:
         - llvm-libcxx=${{package.full-version}}
-      runtime:
-        - llvm-libcxxabi-${{vars.major-version}}
-        - llvm-libunwind-${{vars.major-version}}
+      #runtime:
+      #  - llvm-libcxxabi-${{vars.major-version}}
+      #  - llvm-libunwind-${{vars.major-version}}
     pipeline:
       - runs: |
           mkdir -p ${{targets.contextdir}}${{vars.llvm-prefix}}/lib/${{build.arch}}-unknown-linux-gnu
