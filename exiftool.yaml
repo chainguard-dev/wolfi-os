@@ -37,6 +37,12 @@ pipeline:
 
   - uses: strip
 
+subpackages:
+  - name: exiftool-doc
+    description: "exiftool documentation"
+    pipeline:
+      - uses: split/manpages
+
 update:
   enabled: true
   git: {}
