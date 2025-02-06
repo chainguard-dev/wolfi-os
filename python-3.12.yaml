@@ -1,7 +1,7 @@
 package:
   name: python-3.12
   version: 3.12.8
-  epoch: 3
+  epoch: 4
   description: "the Python programming language"
   copyright:
     - license: PSF-2.0
@@ -287,6 +287,9 @@ test:
         $d/bin/pip list
         $d/bin/pip check
         rm -Rf "$d"
+    - name: Verify fixes for CVE-2025-0938
+      runs: |
+        python3.12 CVE-2025-0938-unittest.py
 
 update:
   enabled: true
