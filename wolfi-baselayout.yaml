@@ -120,5 +120,28 @@ pipeline:
       mkdir -p "${{targets.destdir}}"/var/empty
       chmod 755 "${{targets.destdir}}"/var/empty
 
+test:
+  environment:
+    contents:
+      packages:
+        - net-tools
+  pipeline:
+    - runs: |
+        dnsdomainname --version
+        domainname --version
+        hostname --version
+        ifconfig --version
+        netstat --version
+        nisdomainname --version
+        route --version
+        ypdomainname --version
+        arp --version
+        ipmaddr --version
+        iptunnel --version
+        nameif --version
+        plipconfig --version
+        rarp --version
+        slattach --version
+
 update:
   enabled: false
