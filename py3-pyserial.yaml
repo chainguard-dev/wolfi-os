@@ -1,0 +1,75 @@
+# Generated from https://pypi.org/project/pyserial/
+package:
+  name: py3-pyserial
+  version: "3.5"
+  epoch: 0
+  description: Python Serial Port Extension
+  copyright:
+    - license: BSD-3-Clause
+  dependencies:
+    provider-priority: "0"
+
+environment:
+  contents:
+    packages:
+      - build-base
+      - busybox
+      - ca-certificates-bundle
+      - py3-supported-build-base-dev
+      - wolfi-base
+
+pipeline:
+  - uses: git-checkout
+    with:
+      expected-commit: 0e7634747568547b8a7f9fd0c48ed74f16af4b23
+      repository: https://github.com/pyserial/pyserial
+      tag: v${{package.version}}
+
+subpackages:
+  - range: py-versions
+    name: py${{range.key}}-${{vars.pypi-package}}
+    pipeline:
+      - name: Python Build
+        uses: py/pip-build-install
+        with:
+          python: python${{range.key}}
+    dependencies:
+      provides:
+        - py3-${{vars.pypi-package}}
+      provider-priority: ${{range.value}}
+    test:
+      environment: {}
+      pipeline:
+        - name: Import Test
+          uses: python/import
+          with:
+            import: ${{vars.import}}
+            python: python${{range.key}}
+
+data:
+  - name: py-versions
+    items:
+      "3.10": "310"
+      "3.11": "311"
+      "3.12": "312"
+      "3.13": "313"
+
+update:
+  enabled: true
+  manual: false
+  require-sequential: false
+  github:
+    identifier: pyserial/pyserial
+    strip-prefix: v
+
+vars:
+  import: serial
+  pypi-package: pyserial
+
+test:
+  environment: {}
+  pipeline:
+    - name: Import Test
+      uses: python/import
+      with:
+        import: ${{vars.import}}
