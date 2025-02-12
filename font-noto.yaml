@@ -1,0 +1,258 @@
+package:
+  name: font-noto
+  version: 2025.02.01
+  epoch: 0
+  description: Noto fonts
+  dependencies:
+    runtime:
+      - font-noto-sans-math
+      - font-noto-sans-symbols
+      - fontconfig
+  copyright:
+    - license: Apache-2.0
+
+environment:
+  contents:
+    packages:
+      - busybox
+
+data:
+  - name: fonts
+    items:
+      NotoFangsongKSSRotated: fangsongkssrotated
+      NotoFangsongKSSVertical: fangsongkssvertical
+      NotoKufiArabic: kufiarabic
+      NotoMusic: music
+      NotoNaskhArabic: naskharabic
+      NotoNaskhArabicUI: naskharabicui
+      NotoNastaliqUrdu: nastaliqurdu
+      NotoRashiHebrew: rashihebrew
+      NotoSans: sans
+      NotoSansAdlam: sans-adlam
+      NotoSansAdlamUnjoined: sans-adlamunjoined
+      NotoSansAnatolianHieroglyphs: sans-anatolianhieroglyphs
+      NotoSansArabic: sans-arabic
+      NotoSansArabicUI: sans-arabicui
+      NotoSansArmenian: sans-armenian
+      NotoSansAvestan: sans-avestan
+      NotoSansBalinese: sans-balinese
+      NotoSansBamum: sans-bamum
+      NotoSansBassaVah: sans-bassavah
+      NotoSansBatak: sans-batak
+      NotoSansBengali: sans-bengali
+      NotoSansBhaiksuki: sans-bhaiksuki
+      NotoSansBrahmi: sans-brahmi
+      NotoSansBuginese: sans-buginese
+      NotoSansBuhid: sans-buhid
+      NotoSansCanadianAboriginal: sans-canadianaboriginal
+      NotoSansCarian: sans-carian
+      NotoSansCaucasianAlbanian: sans-caucasianalbanian
+      NotoSansChakma: sans-chakma
+      NotoSansCham: sans-cham
+      NotoSansCherokee: sans-cherokee
+      NotoSansChorasmian: sans-chorasmian
+      NotoSansCoptic: sans-coptic
+      NotoSansCuneiform: sans-cuneiform
+      NotoSansCypriot: sans-cypriot
+      NotoSansCyproMinoan: sans-cyprominoan
+      NotoSansDeseret: sans-deseret
+      NotoSansDevanagari: sans-devanagari
+      NotoSansDuployan: sans-duployan
+      NotoSansEgyptianHieroglyphs: sans-egyptianhieroglyphs
+      NotoSansElbasan: sans-elbasan
+      NotoSansElymaic: sans-elymaic
+      NotoSansEthiopic: sans-ethiopic
+      NotoSansGeorgian: sans-georgian
+      NotoSansGlagolitic: sans-glagolitic
+      NotoSansGothic: sans-gothic
+      NotoSansGrantha: sans-grantha
+      NotoSansGujarati: sans-gujarati
+      NotoSansGunjalaGondi: sans-gunjalagondi
+      NotoSansGurmukhi: sans-gurmukhi
+      NotoSansHanifiRohingya: sans-hanifirohingya
+      NotoSansHanunoo: sans-hanunoo
+      NotoSansHatran: sans-hatran
+      NotoSansHebrew: sans-hebrew
+      NotoSansImperialAramaic: sans-imperialaramaic
+      NotoSansIndicSiyaqNumbers: sans-indicsiyaqnumbers
+      NotoSansInscriptionalPahlavi: sans-inscriptionalpahlavi
+      NotoSansInscriptionalParthian: sans-inscriptionalparthian
+      NotoSansJavanese: sans-javanese
+      NotoSansKaithi: sans-kaithi
+      NotoSansKannada: sans-kannada
+      NotoSansKawi: sans-kawi
+      NotoSansKayahLi: sans-kayahli
+      NotoSansKharoshthi: sans-kharoshthi
+      NotoSansKhmer: sans-khmer
+      NotoSansKhojki: sans-khojki
+      NotoSansKhudawadi: sans-khudawadi
+      NotoSansLao: sans-lao
+      NotoSansLaoLooped: sans-laolooped
+      NotoSansLepcha: sans-lepcha
+      NotoSansLimbu: sans-limbu
+      NotoSansLinearA: sans-lineara
+      NotoSansLinearB: sans-linearb
+      NotoSansLisu: sans-lisu
+      NotoSansLycian: sans-lycian
+      NotoSansLydian: sans-lydian
+      NotoSansMahajani: sans-mahajani
+      NotoSansMalayalam: sans-malayalam
+      NotoSansMandaic: sans-mandaic
+      NotoSansManichaean: sans-manichaean
+      NotoSansMarchen: sans-marchen
+      NotoSansMasaramGondi: sans-masaramgondi
+      NotoSansMath: sans-math
+      NotoSansMayanNumerals: sans-mayannumerals
+      NotoSansMedefaidrin: sans-medefaidrin
+      NotoSansMeeteiMayek: sans-meeteimayek
+      NotoSansMendeKikakui: sans-mendekikakui
+      NotoSansMeroitic: sans-meroitic
+      NotoSansMiao: sans-miao
+      NotoSansModi: sans-modi
+      NotoSansMongolian: sans-mongolian
+      NotoSansMono: sans-mono
+      NotoSansMro: sans-mro
+      NotoSansMultani: sans-multani
+      NotoSansMyanmar: sans-myanmar
+      NotoSansNKo: sans-nko
+      NotoSansNKoUnjoined: sans-nkounjoined
+      NotoSansNabataean: sans-nabataean
+      NotoSansNagMundari: sans-nagmundari
+      NotoSansNandinagari: sans-nandinagari
+      NotoSansNewTaiLue: sans-newtailue
+      NotoSansNewa: sans-newa
+      NotoSansNushu: sans-nushu
+      NotoSansOgham: sans-ogham
+      NotoSansOlChiki: sans-olchiki
+      NotoSansOldHungarian: sans-oldhungarian
+      NotoSansOldItalic: sans-olditalic
+      NotoSansOldNorthArabian: sans-oldnortharabian
+      NotoSansOldPermic: sans-oldpermic
+      NotoSansOldPersian: sans-oldpersian
+      NotoSansOldSogdian: sans-oldsogdian
+      NotoSansOldSouthArabian: sans-oldsoutharabian
+      NotoSansOldTurkic: sans-oldturkic
+      NotoSansOriya: sans-oriya
+      NotoSansOsage: sans-osage
+      NotoSansOsmanya: sans-osmanya
+      NotoSansPahawhHmong: sans-pahawhhmong
+      NotoSansPalmyrene: sans-palmyrene
+      NotoSansPauCinHau: sans-paucinhau
+      NotoSansPhagsPa: sans-phagspa
+      NotoSansPhoenician: sans-phoenician
+      NotoSansPsalterPahlavi: sans-psalterpahlavi
+      NotoSansRejang: sans-rejang
+      NotoSansRunic: sans-runic
+      NotoSansSamaritan: sans-samaritan
+      NotoSansSaurashtra: sans-saurashtra
+      NotoSansSharada: sans-sharada
+      NotoSansShavian: sans-shavian
+      NotoSansSiddham: sans-siddham
+      NotoSansSignWriting: sans-signwriting
+      NotoSansSinhala: sans-sinhala
+      NotoSansSogdian: sans-sogdian
+      NotoSansSoraSompeng: sans-sorasompeng
+      NotoSansSoyombo: sans-soyombo
+      NotoSansSundanese: sans-sundanese
+      NotoSansSylotiNagri: sans-sylotinagri
+      NotoSansSymbols: sans-symbols
+      NotoSansSymbols2: sans-symbols2
+      NotoSansSyriac: sans-syriac
+      NotoSansSyriacEastern: sans-syriaceastern
+      NotoSansSyriacWestern: sans-syriacwestern
+      NotoSansTagalog: sans-tagalog
+      NotoSansTagbanwa: sans-tagbanwa
+      NotoSansTaiLe: sans-taile
+      NotoSansTaiTham: sans-taitham
+      NotoSansTaiViet: sans-taiviet
+      NotoSansTakri: sans-takri
+      NotoSansTamil: sans-tamil
+      NotoSansTamilSupplement: sans-tamilsupplement
+      NotoSansTangsa: sans-tangsa
+      NotoSansTelugu: sans-telugu
+      NotoSansTest: sans-test
+      NotoSansThaana: sans-thaana
+      NotoSansThai: sans-thai
+      NotoSansThaiLooped: sans-thailooped
+      NotoSansTifinagh: sans-tifinagh
+      NotoSansTirhuta: sans-tirhuta
+      NotoSansUgaritic: sans-ugaritic
+      NotoSansVai: sans-vai
+      NotoSansVithkuqi: sans-vithkuqi
+      NotoSansWancho: sans-wancho
+      NotoSansWarangCiti: sans-warangciti
+      NotoSansYi: sans-yi
+      NotoSansZanabazarSquare: sans-zanabazarsquare
+      NotoSerif: serif
+      NotoSerifAhom: serif-ahom
+      NotoSerifArmenian: serif-armenian
+      NotoSerifBalinese: serif-balinese
+      NotoSerifBengali: serif-bengali
+      NotoSerifDevanagari: serif-devanagari
+      NotoSerifDisplay: serif-display
+      NotoSerifDivesAkuru: serif-divesakuru
+      NotoSerifDogra: serif-dogra
+      NotoSerifEthiopic: serif-ethiopic
+      NotoSerifGeorgian: serif-georgian
+      NotoSerifGrantha: serif-grantha
+      NotoSerifGujarati: serif-gujarati
+      NotoSerifGurmukhi: serif-gurmukhi
+      NotoSerifHebrew: serif-hebrew
+      NotoSerifKannada: serif-kannada
+      NotoSerifKhitanSmallScript: serif-khitansmallscript
+      NotoSerifKhmer: serif-khmer
+      NotoSerifKhojki: serif-khojki
+      NotoSerifLao: serif-lao
+      NotoSerifMakasar: serif-makasar
+      NotoSerifMalayalam: serif-malayalam
+      NotoSerifMyanmar: serif-myanmar
+      NotoSerifNPHmong: serif-nphmong
+      NotoSerifOldUyghur: serif-olduyghur
+      NotoSerifOriya: serif-oriya
+      NotoSerifOttomanSiyaq: serif-ottomansiyaq
+      NotoSerifSinhala: serif-sinhala
+      NotoSerifTamil: serif-tamil
+      NotoSerifTangut: serif-tangut
+      NotoSerifTelugu: serif-telugu
+      NotoSerifTest: serif-test
+      NotoSerifThai: serif-thai
+      NotoSerifTibetan: serif-tibetan
+      NotoSerifToto: serif-toto
+      NotoSerifVithkuqi: serif-vithkuqi
+      NotoSerifYezidi: serif-yezidi
+      NotoTraditionalNushu: traditionalnushu
+      NotoZnamennyMusicalNotation: znamennymusicalnotation
+
+pipeline:
+  - uses: git-checkout
+    with:
+      expected-commit: 5f3fe2540d34dfb13929aadc717d90b7066a7198
+      repository: https://github.com/notofonts/notofonts.github.io
+      tag: noto-monthly-release-${{package.version}}
+
+subpackages:
+  - range: fonts
+    name: ${{package.name}}-${{range.value}}
+    description: ${{range.key}} font package
+    pipeline:
+      - runs: |
+          mkdir -p "${{targets.contextdir}}"/usr/share/fonts/noto
+          find ./fonts/${{range.key}}/hinted -name "*.ttf" -exec install -Dm644 {} \
+          	-t "${{targets.contextdir}}"/usr/share/fonts/noto/ \;
+      - uses: strip
+    test:
+      environment:
+        contents:
+          packages:
+            - fontconfig
+      pipeline:
+        - runs: stat "/usr/share/fonts/noto"
+        - runs: find "/usr/share/fonts/noto" -name "*.ttf" -exec fc-scan {} \;
+
+update:
+  enabled: true
+  github:
+    identifier: notofonts/notofonts.github.io
+    strip-prefix: noto-monthly-release-
+    use-tag: true
+    tag-filter: noto-monthly-release-
