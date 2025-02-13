@@ -2,8 +2,8 @@ package:
   name: datadog-agent
   # This package has two git checkouts. For each new release, the commit SHA for
   # DataDog/integrations-core must also be updated.
-  version: 7.60.1
-  epoch: 4
+  version: "7.62.2"
+  epoch: 0
   description: "Collect events and metrics from your hosts that send data to Datadog."
   copyright:
     - license: Apache-2.0
@@ -94,7 +94,7 @@ pipeline:
     with:
       repository: https://github.com/DataDog/datadog-agent
       tag: ${{package.version}}
-      expected-commit: 646618687e4f9351b5fe19cce678c9cd4b011e74
+      expected-commit: e7235cf59393e06a187005695e489d63217cab3e
 
   - runs: |
       gccdir="$(GCC_SPEC_FILE=/dev/null gcc --print-search-dirs | grep ^install: | cut -d' ' -f2)"
@@ -108,12 +108,6 @@ pipeline:
 
       # install `gitlab`
       python${{vars.py-version}} -m pip install python-gitlab
-
-  - uses: go/bump
-    with:
-      deps: github.com/moby/buildkit@v0.13.1 golang.org/x/net@v0.33.0 github.com/go-git/go-git/v5@v5.13.0
-      replaces: github.com/mholt/archiver/v3=github.com/anchore/archiver/v3@v3.5.2
-      show-diff: true
 
   - if: ${{build.arch}} == 'aarch64'
     runs: |
@@ -162,7 +156,6 @@ pipeline:
       unshare --user --map-root-user \
         invoke -e system-probe.build \
         --strip-object-files \
-        --no-bundle \
         --bundle-ebpf
 
   - runs: |
@@ -298,11 +291,12 @@ subpackages:
           - uses: git-checkout
             with:
               repository: https://github.com/DataDog/integrations-core
-              branch: ${{vars.datadog-major-minor-x}} # 7.59.x
-              expected-commit: 3189af0e0ae840c9a4bab3131662c7fd6b0de7fb # needs to be updated with each new release
+              branch: ${{vars.datadog-major-minor-x}} # 7.62.x
+              expected-commit: 59ae7b79fdbb5c14abacf26e1536c338b9ebfb7f # needs to be updated with each new release
+              depth: -1
           - uses: patch
             with:
-              patches: /home/build/int-core-datadog_checks_dev-pyproject-toml.patch /home/build/int-core-mysql-hatch-toml.patch /home/build/int-core-singlestore-hatch-toml.patch /home/build/int-core-agent_requirements-in.patch /home/build/int-core-snowflake-pyproject-toml.patch
+              patches: /home/build/int-core-datadog_checks_dev-pyproject-toml.patch /home/build/int-core-mysql-hatch-toml.patch /home/build/int-core-singlestore-hatch-toml.patch /home/build/int-core-agent_requirements-in.patch
           - runs: |
               # This is needed to work around the error "ValueError: ZIP does not support timestamps before 1980"
               SOURCE_DATE_EPOCH=315532800
@@ -416,9 +410,6 @@ subpackages:
         # This needs CGO_ENABLED=1, which we just so happen to inherit from the
         # main package
         pipeline:
-          - uses: go/bump
-            with:
-              deps: google.golang.org/protobuf@v1.33.0 github.com/golang/protobuf@v1.5.4
           - uses: go/build
             with:
               packages: ./cmd/server
